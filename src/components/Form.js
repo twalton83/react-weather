@@ -28,26 +28,26 @@ width: 5rem;
 box-shadow: 0px 0px 8px rgba(0,0,0,.2);
 `
 
-export default function SearchForm() {
+export default function SearchForm({ handleSubmit, handleInputChange }) {
   return (
     <Form>
     <Label htmlFor="cityName">
       City: 
-      <Input type="text"></Input>
+      <Input onChange = { handleInputChange } name = "cityName" type="text"></Input>
     </Label>
 
 
     <Label htmlFor="stateName">
       State: 
-      <Input type="text"></Input>
+      <Input onChange = { handleInputChange } name = "stateCode" type="text"></Input>
     </Label>
 
 
     <Label htmlFor="countryCode">
       Country: 
-      <Input type="text"></Input>
+      <Input onChange = { handleInputChange } name = "countryCode" type="text"></Input>
     </Label>
-    <Button>Submit</Button>
+    <Button onClick={ handleSubmit }>Submit</Button>
   </Form>
 
   )

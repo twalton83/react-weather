@@ -9,7 +9,6 @@ text-align: left;
 `
 
 export default function WeatherCard({ weather }) {
-  console.log(weather)
   return (
     <Card>
       <p>
