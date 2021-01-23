@@ -6,13 +6,13 @@ display: flex;
 flex-direction: column;
 justify-content: space-evenly;
 align-items: center;
-height: 70%;
+height: 100%;
 `
 const Input = styled.input`
 border: 1px solid grey;
 height: 2rem;
 border-radius: 5px;
-width: 60%;
+width: 100%;
 `
 const Label = styled.label`
 display: block;
