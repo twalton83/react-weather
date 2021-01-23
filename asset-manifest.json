@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/react-weather/static/css/main.f00d0b4c.chunk.css",
+    "main.js": "/react-weather/static/js/main.f0cfa430.chunk.js",
+    "main.js.map": "/react-weather/static/js/main.f0cfa430.chunk.js.map",
+    "runtime-main.js": "/react-weather/static/js/runtime-main.702aa1a9.js",
+    "runtime-main.js.map": "/react-weather/static/js/runtime-main.702aa1a9.js.map",
+    "static/js/2.d05bc4d5.chunk.js": "/react-weather/static/js/2.d05bc4d5.chunk.js",
+    "static/js/2.d05bc4d5.chunk.js.map": "/react-weather/static/js/2.d05bc4d5.chunk.js.map",
+    "index.html": "/react-weather/index.html",
+    "static/css/main.f00d0b4c.chunk.css.map": "/react-weather/static/css/main.f00d0b4c.chunk.css.map",
+    "static/js/2.d05bc4d5.chunk.js.LICENSE.txt": "/react-weather/static/js/2.d05bc4d5.chunk.js.LICENSE.txt",
+    "static/media/clear.d3c32088.jpg": "/react-weather/static/media/clear.d3c32088.jpg",
+    "static/media/cloudy.b5281376.jpg": "/react-weather/static/media/cloudy.b5281376.jpg",
+    "static/media/rainy.a4ac6601.jpg": "/react-weather/static/media/rainy.a4ac6601.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.702aa1a9.js",
+    "static/js/2.d05bc4d5.chunk.js",
+    "static/css/main.f00d0b4c.chunk.css",
+    "static/js/main.f0cfa430.chunk.js"
+  ]
+}
