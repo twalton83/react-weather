@@ -1,18 +1,24 @@
-import './App.css';
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect } from 'react'
 import Header from './components/Header'
 import Display from './components/Display'
 import styled from 'styled-components'
 import API_KEY from './config.js'
+import clearImage from './images/clear.jpg'
+import cloudyImage from './images/cloudy.jpg'
+import rainyImage from './images/rainy.jpg'
 
 const AppWrapper = styled.div`
 height: 100vh;
-width: 100vh;
-background: ${props => props.background};
+width: 100vw;
+background: url(${props => props.background});
+background-size: cover;
+
 `
 function App() {
 
   const [data, setData] = useState(null);
+
+  const [weatherBackground, setWeatherBackground] = useState(null);
 
   const [queryValues, setQueryValues] = useState({
     cityName: 'Irvine',
@@ -48,9 +54,27 @@ function App() {
     setQueryValues({...queryValues, unit: e.target.value })
   }
 
+  const handleBackground = (weather) => {
+    const condition = weather.toLowerCase()
+    if(condition === "clear") return clearImage
+    if(condition === "rainy") return rainyImage
+    if(condition === "clouds") return cloudyImage
+    return clearImage
+  }
+
+  useEffect(() => {
+    if(data){
+    const background = handleBackground(data.weather[0].main)
+    setWeatherBackground(background)
+    }
+  }, [data])
+
+
   return (
-    <AppWrapper>
-      <Header handleUnitChange = { handleUnitChange } />
+    <AppWrapper background = { weatherBackground }>
+      <Header 
+      currentUnit = { queryValues.unit }
+      handleUnitChange = { handleUnitChange } />
       <Display 
         weather = { data }
         handleSubmit = { handleSubmit } 

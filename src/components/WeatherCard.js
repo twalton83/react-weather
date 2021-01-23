@@ -8,21 +8,24 @@ font-size: 2rem;
 text-align: left;
 `
 
-export default function WeatherCard({ weather }) {
+export default function WeatherCard({ weather, currentUnit }) {
   return (
     <Card>
+      <h1>
+        { weather ? weather.name : "loading.." }
+      </h1>
       <p>
         { weather ? weather.weather[0].main : "loading..." }
       </p>
 
       <p> 
-        Current: {weather ? weather.main.temp : "Could not fetch weather"} 
+        Current: {weather ? weather.main.temp : "Could not fetch weather"}° 
       </p>
       <p>
-        High: {weather ? weather.main.temp_max : "Could not fetch weather"} 
+        High: {weather ? weather.main.temp_max : "Could not fetch weather"}° 
       </p>
       <p>
-        Low: {weather ? weather.main.temp_min : "Could not fetch weather"} 
+        Low: {weather ? weather.main.temp_min : "Could not fetch weather"}° 
       </p>
     </Card>
   )

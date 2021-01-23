@@ -4,14 +4,11 @@ import SearchForm from './Form'
 import WeatherCard from './WeatherCard'
 
 const Wrapper = styled.section`
-display: flex;
-flex-direction: row;
-justify-content: space-evenly;
-height: 40vh;
-width: 90%;
+display: grid;
+grid-template-columns: 50% 50%;
+height: 100%;
+width: 100%;
 margin: 0 auto;
-margin-top: 10vh;
-padding: 1rem;
 @media(max-width: 800px){
   height: 60vh;
   width: 95%;

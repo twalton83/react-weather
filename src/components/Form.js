@@ -7,12 +7,13 @@ flex-direction: column;
 justify-content: space-evenly;
 align-items: center;
 height: 100%;
+background-color: rgba(0,0,0, 0.65)
 `
 const Input = styled.input`
 border: 1px solid grey;
 height: 2rem;
 border-radius: 5px;
-width: 100%;
+width: 80%;
 `
 const Label = styled.label`
 display: block;
