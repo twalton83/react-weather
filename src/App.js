@@ -8,11 +8,12 @@ import cloudyImage from './images/cloudy.jpg'
 import rainyImage from './images/rainy.jpg'
 
 const AppWrapper = styled.div`
-height: 100vh;
-width: 100vw;
-background: url(${props => props.background});
+display: grid;
+grid-template-rows: 10vh 90vh;
+background-color: red;
+background: url(${props => props.background || clearImage});
 background-size: cover;
-
+transition: background 2s ease;
 `
 function App() {
 
@@ -21,14 +22,14 @@ function App() {
   const [weatherBackground, setWeatherBackground] = useState(null);
 
   const [queryValues, setQueryValues] = useState({
-    cityName: 'Irvine',
+    cityName: 'Los Angeles',
     stateCode: 'CA',
     countryCode: 'US',
-    unit: 'imperial'
+    unit: 'Farenheit'
   })
 
   const fetchWeather = async () => {
-    const data = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${queryValues.cityName},${queryValues.stateCode},${queryValues.countryCode}&appid=${API_KEY}&units=${queryValues.unit}`)
+    const data = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${queryValues.cityName},${queryValues.stateCode},${queryValues.countryCode}&appid=${API_KEY}`)
     .then(res => res.status === 200 ? res.json() : null )
     .then(data => data)
     return data
@@ -57,7 +58,7 @@ function App() {
   const handleBackground = (weather) => {
     const condition = weather.toLowerCase()
     if(condition === "clear") return clearImage
-    if(condition === "rainy") return rainyImage
+    if(condition === "rain") return rainyImage
     if(condition === "clouds") return cloudyImage
     return clearImage
   }
@@ -76,6 +77,7 @@ function App() {
       currentUnit = { queryValues.unit }
       handleUnitChange = { handleUnitChange } />
       <Display 
+        currentUnit = { queryValues.unit }
         weather = { data }
         handleSubmit = { handleSubmit } 
         handleInputChange = { handleInputChange }

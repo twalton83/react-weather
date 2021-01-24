@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import SearchForm from './Form'
 import WeatherCard from './WeatherCard'
@@ -6,9 +6,10 @@ import WeatherCard from './WeatherCard'
 const Wrapper = styled.section`
 display: grid;
 grid-template-columns: 50% 50%;
-height: 100%;
+height: 90vh;
 width: 100%;
 margin: 0 auto;
+background-color: rgba(0,0,0,.3);
 @media(max-width: 800px){
   height: 60vh;
   width: 95%;
@@ -16,18 +17,11 @@ margin: 0 auto;
 `
 
 
-export default function Display({ weather, handleSubmit, handleInputChange }) {
-
-
-  const handleUnitChange = (unit) => {
-
-  }
+export default function Display({ weather, handleSubmit, handleInputChange, currentUnit }) {
   
-
-
   return (
     <Wrapper>
-     <WeatherCard weather = { weather || null  } /> 
+     <WeatherCard weather = { weather || null  } currentUnit = {currentUnit} /> 
      <SearchForm handleSubmit = { handleSubmit } handleInputChange = { handleInputChange } />
     </Wrapper>
   )

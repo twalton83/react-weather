@@ -1,13 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
 
+const Section = styled.section`
+background-color: rgba(0,0,0, 0.65);
+backdrop-filter: blur(5px);
+`
+
 const Form = styled.form`
 display: flex;
 flex-direction: column;
-justify-content: space-evenly;
 align-items: center;
-height: 100%;
-background-color: rgba(0,0,0, 0.65)
+height: 50%;
+color: white;
 `
 const Input = styled.input`
 border: 1px solid grey;
@@ -16,40 +20,44 @@ border-radius: 5px;
 width: 80%;
 `
 const Label = styled.label`
-display: block;
-width: 100%;
+margin: 0 auto;
+font-size: 1.5rem;
+margin-top: .5rem;
 `
 
 const Button = styled.button`
-border-radius: 5px;
-background-color: lightblue;
+color: white;
+font-size: 1.1rem;
+background-color: rgba(0,0,0, .9);
 border: none;
-height: 2rem;
+height: 3rem;
 width: 5rem;
 box-shadow: 0px 0px 8px rgba(0,0,0,.2);
+margin: 1rem;
 `
 
 export default function SearchForm({ handleSubmit, handleInputChange }) {
   return (
-    <Form>
-    <Label htmlFor="cityName">
-      City: 
-      <Input onChange = { handleInputChange } name = "cityName" type="text"></Input>
-    </Label>
+    <Section>
+      <Form>
+      <Label htmlFor="cityName">
+        City: 
+      </Label>
+      <Input onChange = { handleInputChange } name = "cityName" type="text"/>
 
+      <Label htmlFor="stateName">
+        State: 
+      </Label>
+      <Input onChange = { handleInputChange } name = "stateCode" type="text"/>
 
-    <Label htmlFor="stateName">
-      State: 
-      <Input onChange = { handleInputChange } name = "stateCode" type="text"></Input>
-    </Label>
+      <Label htmlFor="countryCode">
+        Country: 
+      </Label>
+      <Input onChange = { handleInputChange } name = "countryCode" type="text"/>
 
-
-    <Label htmlFor="countryCode">
-      Country: 
-      <Input onChange = { handleInputChange } name = "countryCode" type="text"></Input>
-    </Label>
-    <Button onClick={ handleSubmit }>Submit</Button>
-  </Form>
+      <Button onClick={ handleSubmit }>Search</Button>
+      </Form>
+  </Section>
 
   )
 }
